@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>help</title>
+</head>
+<body>
+<div id="theme">
+            <h3>Change Your Theme</h3>
+
+    <p>Explore provides two more themes for you to choose——dark and light. (Different theme will use different images to represent the terrain features and connectors) Explore will paint the board using the default theme. But you can change it by clicking the options->theme.</br></br>
+                You can even create a new theme if you like. You only have to do two things: first is to provide a collection of images and put it in the folder images. Then you should create a config file for your theme, the format is shown in the existing config file, and you should modify the theme.conf by adding a new line to indicate where your theme config file is located.</br></br>
+        The syntax is shown below:</p>
+
+                <pre>
+                Syntax in theme.conf:
+                    CONFIG  => (COMMENT)? SET (COLL)+
+                    COMMENT => ("#" [0-9a-zA-Z]* ("\n")+) | SPACE
+                    SET     => ("THEME = " &lt;theme_name&gt;) | SPACE
+                    COLL        => (&lt;theme_name&gt; &lt;theme_path&gt;) | SPACE
+                        SPACE       => ("\n" | " " | "\t")*   
+                
+                Syntax in specific theme config file (theme_&lt;theme_name&gt;.conf):
+                    CONFIG => (COMMENT)? (COLL)+
+                    COMMENT => ("#" [0-9a-zA-Z]* ("\n")+) | SPACE
+                    COLL  => (&lt;cell_name&gt; &lt;cell_image_path&gt; AUTHOR) | SPACE
+                        SPACE  => ("\n" | " " | "\t")*
+                        AUTHOR  => "&lt;NONE&gt;" | &lt;true_author_signature&gt;
+                </pre>
+
+        </div>
+
+</body>
+</html>

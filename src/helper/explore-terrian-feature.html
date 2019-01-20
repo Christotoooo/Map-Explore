@@ -1,0 +1,129 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>help</title>
+</head>
+<body>
+
+<div id="terrain_feature">
+            <h3>Explore Terrain Feature</h3>
+            <div>
+                Terrain maps are composed of up to four different terrain types, four different connector types, barriers, and some special markers. Each cell’s “background” graphic corresponds to the terrain type in that cell. Table 1 details the different terrain types.  Traffic can cross from cell  to cell, even without a connector. When there is no connector at a cell edge, the traffic capacity is that of the lower capacity cell.</br></br>
+                Connectors cross cell boundaries, going from center to center on adjacent cells. Each Connector has a traffic capacity independent of the underlying terrain. Table 2 gives connector details. Traffic capacity goes up as edge weight (cost of travel) goes down. </br></br>                   
+                Explore automatically computes the effective capacity of each cell wall, using the following policy:</br>
+            </div>
+            <ul>
+                <li>if the has a barrier, the weight for that edge is 900.</li>
+                <li>if the there is no connector between two cells, the weight is the maximum of the terrain weight in the two cells. For example, an edge between forest and default would have an effective weight of 195.</li>
+                <li>if there is a connector between two cells the edge weight will be the connecter weight. (It is possible for the edge weight to be less than the connector weight, but only if the capacity of the underlying terrain exceeded the capacity of the connector.</li>
+            </ul>
+        
+            <table align="center" id="terrain_detail" border="1px" class="detail_table">
+                <caption>Table 1 – Terrain details</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Graphic</th>
+                        <th>Represents</th>
+                        <th>Weight</th>   
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>default</td>
+                        <td>none</td>
+                        <td>Relatively flat, easily traversed open land.</td>
+                        <td>165</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>brush</td>
+                        <td><img src="./img/brush.jpg" /></td>
+                        <td>Like default, but with low obstacles.</td>
+                        <td>180</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>forest</td>
+                        <td><img src="./img/forest.jpg" /></td>
+                        <td>Dense trees. Difficult for vehicular traffic</td>
+                        <td>195</td>
+                    </tr>
+                    <tr>
+                        <td>water</td>
+                        <td><img src="./img/water.png" /></td>
+                        <td>Open, relatively still water, such as a lake or pond. Not necessarily suitable for high speed craft.</td>
+                        <td>190</td>
+                    </tr>
+                    <tr>
+                        <td>urban</td>
+                        <td><img src="./img/urban.png" /></td>
+                        <td>Urban area, modern city always make the transportation easy</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>flag1</td>
+                        <td><img src="./img/flag1.png" /></td>
+                        <td>The start cell</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>flag2</td>
+                        <td><img src="./img/flag2.png" /></td>
+                        <td>The finish point</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+                 
+            <table align="center" id="connector_detail" border="1px" class="detail_table">
+                    <caption>Table 2 – Connector details</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Graphic</th>
+                            <th>Represents</th>
+                            <th>Weight</th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>dividedhwy, Hw4</td>
+                            <td><img src="./img/hw4.jpg" /></td>
+                            <td>An interstate or turnpike quality high speed trafficway.</td>
+                            <td>110</td>
+                        </tr>
+                        <tr>
+                            <td>hwy, Hw2</td>
+                            <td><img src="./img/hw2.jpg" /></td>
+                            <td>A two-lane, two-way (e.g., state or county) highway.</td>
+                            <td>130</td>
+                        </tr>
+                        <tr>
+                            <td>unpaved, dirt</td>
+                            <td><img src="./img/dirt.jpg" /></td>
+                            <td>An unpaved, dirt or gravel road or path</td>
+                            <td>143</td>
+                        </tr>
+                        <tr>
+                            <td>river</td>
+                            <td><img src="./img/river.jpg" /></td>
+                            <td>Moving water, but may be navigable only by certain craft.</td>
+                            <td>185</td>
+                        </tr>
+                        <tr>
+                            <td>barrierwall, wall</td>
+                            <td><img src="./img/wall.jpg" /></td>
+                            <td>A barrier.</td>
+                            <td>900</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+        
+
+</body>
+</html>
